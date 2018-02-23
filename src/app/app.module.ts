@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApplicationCardComponent } from './application-card/application-card.component';
 import { RouterModule, Routes } from '@angular/router';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { PageApplicantDetailComponent } from './page-applicant-detail/page-applicant-detail.component';
 
 const appRoutes: Routes = [
   // { path: 'crisis-center', component: CrisisListComponent },
@@ -20,14 +21,16 @@ const appRoutes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  { path: 'home', component: PageHomeComponent }
+  { path: 'home', component: PageHomeComponent },
+  { path: 'applicant-detail/:id', component: PageApplicantDetailComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ApplicationCardComponent,
-    PageHomeComponent
+    PageHomeComponent,
+    PageApplicantDetailComponent
   ],
   imports: [
     BrowserModule,
