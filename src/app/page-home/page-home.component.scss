@@ -28,6 +28,7 @@ header {
 div[canvas] {
   display: flex;
   flex-direction: row;
+  align-items: flex-start;
   div[status-section] {
     min-width: 300px;
     border-radius: 10px;
