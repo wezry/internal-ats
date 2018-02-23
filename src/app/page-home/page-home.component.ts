@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { PageApplicantCreateComponent } from '../page-applicant-create/page-applicant-create.component';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-page-home',
@@ -9,13 +10,7 @@ import { PageApplicantCreateComponent } from '../page-applicant-create/page-appl
 })
 export class PageHomeComponent implements OnInit {
 
-  private listQueue:Array<any> = [
-		{
-			name: 'Queue 1'
-		},{
-			name: 'Queue 2'
-		},
-	];
+  private listQueue:Array<any> = [];
 	private listPhoneScreen:Array<any> = [
 		{
 			name: 'Phone 1'
@@ -46,9 +41,14 @@ export class PageHomeComponent implements OnInit {
 		}
 	];
 
-  constructor(private modalService: NgbModal) { }
+  constructor( private http: HttpClient,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
+    this.http.get('api/applicants').subscribe((applicantResp) => {
+      console.log(applicantResp);
+    },
+      (err) => {});
   }
 
   createNewApplicant() {
