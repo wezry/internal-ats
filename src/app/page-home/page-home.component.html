@@ -1,15 +1,28 @@
-<div status-section>
+<div status-section dropDirective (dropEvent)="addQueue($event)" [dropHighlight]="'sectionHighlight'">
   <div status-section-title>In Queue</div>
-  <app-application-card></app-application-card>
-  <app-application-card></app-application-card>
+  <div *ngFor="let item of listQueue" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseQueue($event)" class="card" >
+      {{ item.name }}
+  </div>
 </div>
-<div status-section>
+<div status-section dropDirective (dropEvent)="addPhoneScreen($event)" [dropHighlight]="'sectionHighlight'">
   <div status-section-title>Phone Screen</div>
+  <div *ngFor="let item of listPhoneScreen" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releasePhoneScreen($event)" class="card" >
+      {{ item.name }}
+  </div>
 </div>
-<div status-section>
+<div status-section dropDirective (dropEvent)="addOnSite($event)" [dropHighlight]="'sectionHighlight'">
   <div status-section-title>On Site</div>
+  <div *ngFor="let item of listOnSite" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseOnSite($event)" class="card" >
+      {{ item.name }}
+  </div>
 </div>
-<div status-section>
+<div status-section dropDirective (dropEvent)="addApproval($event)" [dropHighlight]="'sectionHighlight'">
   <div status-section-title>Approval</div>
-  <app-application-card></app-application-card>
+  <div *ngFor="let item of listApproval" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproval($event)" class="card" >
+      {{ item.name }}
+  </div>
 </div>
+
+
+
+<!--<app-application-card></app-application-card>-->

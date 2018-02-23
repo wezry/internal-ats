@@ -21,3 +21,22 @@ div[status-section] {
   }
 }
 
+
+
+
+.section {
+  border: 1px solid black;
+}
+.card {
+  border: 1px solid gray;
+  display:inline-block;
+  padding:2px 4px;
+  margin:4px;
+}
+
+.sectionHighlight{
+  border:solid 1px limegreen;
+}
+.cardHighlight{
+  border:solid 1px skyblue;
+}

@@ -8,6 +8,8 @@ import { ApplicationCardComponent } from './application-card/application-card.co
 import { RouterModule, Routes } from '@angular/router';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { PageApplicantDetailComponent } from './page-applicant-detail/page-applicant-detail.component';
+import { DragDropDirectiveModule} from 'angular4-drag-drop';
+
 
 const appRoutes: Routes = [
   // { path: 'crisis-center', component: CrisisListComponent },
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    DragDropDirectiveModule,
     RouterModule.forRoot(
       appRoutes
     ),
