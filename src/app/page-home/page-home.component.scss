@@ -1,0 +1,23 @@
+:host {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+div[status-section] {
+  min-width: 300px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin: 25px;
+  background:#4da6ff;
+  padding: 20px;
+
+  div[status-section-title] {
+    margin: 10px;
+    font-size: 2em;
+    color: white;
+  }
+}
+
