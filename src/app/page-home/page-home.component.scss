@@ -1,42 +1,56 @@
 :host {
   width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
 }
 
-div[status-section] {
-  min-width: 300px;
-  border-radius: 10px;
+header {
   display: flex;
-  flex-direction: column;
-  margin: 25px;
-  background:#4da6ff;
-  padding: 20px;
-
-  div[status-section-title] {
-    margin: 10px;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  h1 {
+    flex-grow: 1;
+    margin-left: 20px;
+  }
+  button {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+  }
+  i {
+    color: limegreen;
     font-size: 2em;
-    color: white;
   }
 }
 
+div[canvas] {
+  display: flex;
+  flex-direction: row;
+  div[status-section] {
+    min-width: 300px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    background:#4da6ff;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
 
-
-
-.section {
-  border: 1px solid black;
-}
-.card {
-  border: 1px solid gray;
-  display:inline-block;
-  padding:2px 4px;
-  margin:4px;
+    div[status-section-title] {
+      margin: 10px;
+      font-size: 1em;
+      color: white;
+    }
+  }
 }
 
 .sectionHighlight{
-  border:solid 1px limegreen;
+  transform: translate3d(-1px, -1px, 3px);
+  box-shadow: 2px 2px 14px -3px black;
 }
 .cardHighlight{
-  border:solid 1px skyblue;
+  transform: translate3d(-1px, -1px, 3px);
+  box-shadow: 2px 2px 14px -3px black;
 }

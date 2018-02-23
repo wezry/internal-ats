@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { PageApplicantDetailComponent } from './page-applicant-detail/page-applicant-detail.component';
 import { DragDropDirectiveModule} from 'angular4-drag-drop';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const appRoutes: Routes = [
@@ -38,6 +39,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     DragDropDirectiveModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot(
       appRoutes
     ),

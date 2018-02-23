@@ -12,30 +12,12 @@ export class PageHomeComponent implements OnInit {
 			name: 'Queue 1'
 		},{
 			name: 'Queue 2'
-		},{
-			name: 'Queue 3'
-		},{
-			name: 'Queue 4'
-		},{
-			name: 'Queue 5'
-		},{
-			name: 'Queue 6'
-		}
+		},
 	];
 	private listPhoneScreen:Array<any> = [
 		{
 			name: 'Phone 1'
-		},{
-			name: 'Phone 2'
-		},{
-			name: 'Phone 3'
-		},{
-			name: 'Phone 4'
-		},{
-			name: 'Phone 5'
-		},{
-			name: 'Phone 6'
-		}
+		},
 	];
 	private listOnSite:Array<any> = [
 		{
@@ -44,13 +26,7 @@ export class PageHomeComponent implements OnInit {
 			name: 'On-site 2'
 		},{
 			name: 'On-site 3'
-		},{
-			name: 'On-site 4'
-		},{
-			name: 'On-site 5'
-		},{
-			name: 'On-site 6'
-		}
+		},
 	];
   private listApproval:Array<any> = [
 		{
