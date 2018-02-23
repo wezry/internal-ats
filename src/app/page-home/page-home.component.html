@@ -1,15 +1,26 @@
-<div status-section>
-  <div status-section-title>In Queue</div>
-  <app-application-card></app-application-card>
-  <app-application-card></app-application-card>
-</div>
-<div status-section>
-  <div status-section-title>Phone Screen</div>
-</div>
-<div status-section>
-  <div status-section-title>On Site</div>
-</div>
-<div status-section>
-  <div status-section-title>Approval</div>
-  <app-application-card></app-application-card>
+<header>
+  <h1>Internal-ats</h1>
+  <button (click)="createNewApplicant()">
+    <i class="fa fa-plus-circle"></i>
+    New Applicant
+  </button>
+</header>
+
+<div canvas>
+  <div status-section dropDirective (dropEvent)="addQueue($event)" [dropHighlight]="'sectionHighlight'">
+    <div status-section-title>In Queue</div>
+    <app-application-card [name]="item.name" *ngFor="let item of listQueue" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseQueue($event)"></app-application-card>
+  </div>
+  <div status-section dropDirective (dropEvent)="addPhoneScreen($event)" [dropHighlight]="'sectionHighlight'">
+    <div status-section-title>Phone Screen</div>
+    <app-application-card [name]="item.name" *ngFor="let item of listPhoneScreen" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releasePhoneScreen($event)"></app-application-card>
+  </div>
+  <div status-section dropDirective (dropEvent)="addOnSite($event)" [dropHighlight]="'sectionHighlight'">
+    <div status-section-title>On Site</div>
+    <app-application-card [name]="item.name" *ngFor="let item of listOnSite" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseOnSite($event)"></app-application-card>
+  </div>
+  <div status-section dropDirective (dropEvent)="addApproval($event)" [dropHighlight]="'sectionHighlight'">
+    <div status-section-title>Approval</div>
+    <app-application-card [name]="item.name" *ngFor="let item of listApproval" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproval($event)"></app-application-card>
+  </div>
 </div>
