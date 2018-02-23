@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { PageApplicantCreateComponent } from '../page-applicant-create/page-applicant-create.component';
 
 @Component({
   selector: 'app-page-home',
@@ -44,9 +46,13 @@ export class PageHomeComponent implements OnInit {
 		}
 	];
 
-  constructor() { }
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+  }
+
+  createNewApplicant() {
+    this.modalService.open(PageApplicantCreateComponent);
   }
 
   private releaseQueue(event){
