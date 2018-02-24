@@ -1,0 +1,49 @@
+div.modal-body {
+  background-color: #EEEEEE;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  div[form-text-item] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+
+    input, textarea {
+      border-radius: 5px;
+      border-style: solid;
+      border-color: #E1E1E1;
+      border-width: 1px;
+      padding: 5px;
+      &.ng-touched.ng-invalid {
+        border-color: #ff0033;
+      }
+      &.ng-valid {
+        border-color: limegreen;
+      }
+    }
+
+    i {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      font-size: 2em;
+      margin-bottom: 3px;
+      color: #ff0033;
+      margin-right: 3px;
+    }
+  }
+
+  div[action-buttons] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    button {
+      margin: 10px;
+      flex-grow: 1;
+    }
+  }
+}

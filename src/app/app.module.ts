@@ -11,6 +11,7 @@ import { PageApplicantDetailComponent } from './page-applicant-detail/page-appli
 import { DragDropDirectiveModule} from 'angular4-drag-drop';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageApplicantCreateComponent } from './page-applicant-create/page-applicant-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const appRoutes: Routes = [
@@ -33,18 +34,19 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ApplicationCardComponent,
-    PageHomeComponent,
+    PageApplicantCreateComponent,
     PageApplicantDetailComponent,
-    PageApplicantCreateComponent
+    PageHomeComponent,
   ],
   entryComponents: [
     PageApplicantCreateComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
     DragDropDirectiveModule,
+    HttpClientModule,
     NgbModule.forRoot(),
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes
     ),
