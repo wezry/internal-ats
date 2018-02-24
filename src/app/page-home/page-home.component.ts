@@ -57,7 +57,7 @@ export class PageHomeComponent implements OnInit {
 
   private releaseQueue(event){
   	let index = this.listQueue.indexOf(event);
-  	if (index >= 0){
+  	if (index >= 0) {
   		this.listQueue.splice(index,1);
   	}
   }
