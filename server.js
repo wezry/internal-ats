@@ -70,7 +70,7 @@ app.post("/api/applicants", function(req, res) {
   if (!newApplicant.name) {
     handleError(res, "Invalid input", "Must provide a name", 400);
   }
-  if (!newApplicant.email || !newApplicant.address) {
+  if (!newApplicant.email && !newApplicant.address) {
     handleError(res, "Invalid input", "Must provide a name differentiator (email or address)", 400);
   }
 
