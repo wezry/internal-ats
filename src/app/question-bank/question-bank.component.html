@@ -1,0 +1,17 @@
+<ngb-accordion #acc="ngbAccordion">
+  <ngb-panel *ngFor="let question of questions">
+    <ng-template ngbPanelTitle>
+        <div title>{{question.text}}</div>
+    </ng-template>
+    <ng-template ngbPanelContent>
+      <div sample-answer>{{question.sampleAnswer}}</div>
+      <div tags>
+        Tags:
+        <button class="btn btn-sm btn-outline-primary" *ngFor="let tag of question.tags">
+          {{tag}}
+        </button>
+      </div>
+      <button action-button class="btn btn-primary" (click)="selectedQuestion.emit(question)">Add to applicant</button>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>

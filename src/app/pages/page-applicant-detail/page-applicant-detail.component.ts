@@ -6,6 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Applicant } from '../../../models/applicant.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalService } from '../../../services/confirmation-modal/confirmation-modal.service';
+import { Question } from '../../../models/question.model';
 
 @Component({
   selector: 'app-page-applicant-detail',
@@ -53,5 +54,9 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
       },
       (err) => { console.log("Error in applicant deletion: " + err.toString()); }
     );
+  }
+
+  addSelectedQuestion(question: Question) {
+    console.log(question);
   }
 }

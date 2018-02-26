@@ -7,6 +7,7 @@
 }
 
 header {
+  color: #FFFFFF;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -54,14 +55,14 @@ div[canvas] {
     display: flex;
     flex-direction: column;
     margin: 25px;
-    background:#4da6ff;
+    background:#D8DCDB;
     padding: 20px;
     transition: transform 0.3s, box-shadow 0.3s;
 
     div[status-section-title] {
       margin: 10px;
       font-size: 1em;
-      color: white;
+      color: #000000;
     }
   }
 }

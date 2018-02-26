@@ -20,6 +20,7 @@ import { PageApplicantDetailComponent } from './pages/page-applicant-detail/page
 /* SERVICES */
 import { ApplicantStateService } from '../services/applicant-state/applicant-state.service';
 import { ConfirmationModalService } from '../services/confirmation-modal/confirmation-modal.service';
+import { QuestionBankComponent } from './question-bank/question-bank.component';
 
 const appServices = [
   ApplicantStateService,
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     ...appComponents,
-    ...pageComponents
+    ...pageComponents,
+    QuestionBankComponent
   ],
   entryComponents: [
     ApplicantCreateComponent,

@@ -1,4 +1,5 @@
 <a [routerLink]="'/home'">Back to Home</a>
+<app-question-bank (selectedQuestion)="addSelectedQuestion($event)"></app-question-bank>
 <div *ngIf="currentApplicant">
   {{currentApplicant | json}}
 </div>
