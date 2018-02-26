@@ -7,6 +7,7 @@ import { Applicant } from '../../../models/applicant.model';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ConfirmationModalService } from '../../../services/confirmation-modal/confirmation-modal.service';
 import { Question } from '../../../models/question.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-page-applicant-detail',
@@ -21,13 +22,19 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
   constructor(private applState: ApplicantStateService,
               private confirmationModal: ConfirmationModalService,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private http: HttpClient) { }
 
   ngOnInit() {
     this.route.params.pipe(
       takeUntil(this.ngUnsubscribe))
     .subscribe((params) => {
       this.currentApplicant = this.applState.getApplicant(params['id']);
+      if (!this.currentApplicant) {
+        this.http.get('api/applicants/' + params['id']).subscribe((val: any) => {
+          this.currentApplicant = val;
+        });
+      }
     });
   }
 
