@@ -40,11 +40,12 @@ const pageComponents = [
 ];
 
 const appRoutes: Routes = [
-  { path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-  },
-  { path: 'home', component: PageHomeComponent },
+  // { path: '',
+  //   redirectTo: '/home',
+  //   pathMatch: 'full'
+  // },
+  // { path: 'home', component: PageHomeComponent },
+  { path: '', component: PageHomeComponent },
   { path: 'applicant-detail/:id', component: PageApplicantDetailComponent }
 ];
 
