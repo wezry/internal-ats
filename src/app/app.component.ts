@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +6,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
 
-  constructor(private http: HttpClient) {
-  }
-
-  testApi() {
-    this.http.get("/api/applicants").subscribe((res) => {
-      console.log(res);
-    });
-  }
+  constructor() {}
 }

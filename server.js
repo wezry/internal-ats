@@ -7,7 +7,7 @@ const APPLICANT_COLLECTION = "applicants";
 const QUESTION_COLLECTION = "questions";
 const RESPONSE_COLLECTION = "responses";
 
-const APPLICANT_STATUSES = ["In Queue", "Phone Screen", "On Site", "Approval"];
+const APPLICANT_STATUSES = ["In Queue", "Phone Screen", "On Site", "Approved"];
 const QUESTION_TAGS = ["Technical", "Behavioral"];
 
 var app = express();
@@ -72,6 +72,9 @@ app.post("/api/applicants", function(req, res) {
   }
   if (!newApplicant.email && !newApplicant.address) {
     handleError(res, "Invalid input", "Must provide a name differentiator (email or address)", 400);
+  }
+  if (APPLICANT_STATUSES.indexOf(newApplicant.status) < 0) {
+    handleError(res, "Invalid input", "Must provide valid status: " + APPLICANT_STATUSES.toString(), 400);
   }
 
   var date = new Date();

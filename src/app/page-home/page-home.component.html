@@ -10,19 +10,19 @@
   <div board>
     <div status-section dropDirective (dropEvent)="addQueue($event)" [dropHighlight]="'sectionHighlight'">
       <div status-section-title>In Queue</div>
-      <app-application-card [name]="item.name" *ngFor="let item of listQueue" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseQueue($event)"></app-application-card>
+      <app-application-card [name]="item.name" *ngFor="let item of applState.listQueue" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseQueue($event)"></app-application-card>
     </div>
     <div status-section dropDirective (dropEvent)="addPhoneScreen($event)" [dropHighlight]="'sectionHighlight'">
       <div status-section-title>Phone Screen</div>
-      <app-application-card [name]="item.name" *ngFor="let item of listPhoneScreen" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releasePhoneScreen($event)"></app-application-card>
+      <app-application-card [name]="item.name" *ngFor="let item of applState.listPhoneScreen" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releasePhoneScreen($event)"></app-application-card>
     </div>
     <div status-section dropDirective (dropEvent)="addOnSite($event)" [dropHighlight]="'sectionHighlight'">
       <div status-section-title>On Site</div>
-      <app-application-card [name]="item.name" *ngFor="let item of listOnSite" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseOnSite($event)"></app-application-card>
+      <app-application-card [name]="item.name" *ngFor="let item of applState.listOnSite" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseOnSite($event)"></app-application-card>
     </div>
     <div status-section dropDirective (dropEvent)="addApproval($event)" [dropHighlight]="'sectionHighlight'">
       <div status-section-title>Approval</div>
-      <app-application-card [name]="item.name" *ngFor="let item of listApproval" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproval($event)"></app-application-card>
+      <app-application-card [name]="item.name" *ngFor="let item of applState.listApproved" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproved($event)"></app-application-card>
     </div>
   </div>
 </div>

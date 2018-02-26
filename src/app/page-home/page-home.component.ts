@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { PageApplicantCreateComponent } from '../page-applicant-create/page-applicant-create.component';
 import {HttpClient} from '@angular/common/http';
+import {Applicant, ApplicantStatus} from '../../models/applicant.model';
+
+import { groupBy } from 'lodash';
+import { ApplicantStateService } from '../services/applicant-state.service';
 
 @Component({
   selector: 'app-page-home',
@@ -10,89 +14,54 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PageHomeComponent implements OnInit {
 
-  private listQueue:Array<any> = [];
-	private listPhoneScreen:Array<any> = [
-		{
-			name: 'Phone 1'
-		},
-	];
-	private listOnSite:Array<any> = [
-		{
-			name: 'On-site 1'
-		},{
-			name: 'On-site 2'
-		},{
-			name: 'On-site 3'
-		},
-	];
-  private listApproval:Array<any> = [
-		{
-			name: 'Approval 1'
-		},{
-			name: 'Approval 2'
-		},{
-			name: 'Approval 3'
-		},{
-			name: 'Approval 4'
-		},{
-			name: 'Approval 5'
-		},{
-			name: 'Approval 6'
-		}
-	];
-
-  constructor( private http: HttpClient,
-    private modalService: NgbModal) { }
+  constructor( private applState: ApplicantStateService,
+               private modalService: NgbModal) { }
 
   ngOnInit() {
-    this.http.get('api/applicants').subscribe((applicantResp) => {
-      console.log(applicantResp);
-    },
-      (err) => {});
+    this.applState.refreshState();
   }
 
   createNewApplicant() {
     this.modalService.open(PageApplicantCreateComponent);
   }
 
-  private releaseQueue(event){
-  	let index = this.listQueue.indexOf(event);
-  	if (index >= 0) {
-  		this.listQueue.splice(index,1);
-  	}
+  private releaseQueue(event: Applicant) {
+    const index = this.applState.listQueue.indexOf(event);
+    if (index >= 0) {
+      this.applState.listQueue.splice(index, 1);
+    }
   }
-	private addQueue(event){
-			this.listQueue.push(event);
-	}
-
-	private releasePhoneScreen(event){
-  	let index = this.listPhoneScreen.indexOf(event);
-  	if (index >= 0){
-  		this.listPhoneScreen.splice(index,1);
-  	}
+  private addQueue(event: Applicant) {
+      this.applState.setApplicantStatus(event, ApplicantStatus.IN_QUEUE, this.applState.listQueue);
   }
-	private addPhoneScreen(event){
-			this.listPhoneScreen.push(event);
-	}
 
-	private releaseOnSite(event){
-  	let index = this.listOnSite.indexOf(event);
-  	if (index >= 0){
-  		this.listOnSite.splice(index,1);
-  	}
+  private releasePhoneScreen(event: Applicant) {
+    const index = this.applState.listPhoneScreen.indexOf(event);
+    if (index >= 0) {
+      this.applState.listPhoneScreen.splice(index, 1);
+    }
   }
-	private addOnSite(event){
-			this.listOnSite.push(event);
-	}
-
-  private releaseApproval(event){
-  	let index = this.listApproval.indexOf(event);
-  	if (index >= 0){
-  		this.listApproval.splice(index,1);
-  	}
+  private addPhoneScreen(event: Applicant) {
+    this.applState.setApplicantStatus(event, ApplicantStatus.PHONE_SCREEN, this.applState.listPhoneScreen);
   }
-	private addApproval(event){
-			this.listApproval.push(event);
-	}
 
+  private releaseOnSite(event: Applicant) {
+    const index = this.applState.listOnSite.indexOf(event);
+    if (index >= 0) {
+      this.applState.listOnSite.splice(index, 1);
+    }
+  }
+  private addOnSite(event: Applicant) {
+    this.applState.setApplicantStatus(event, ApplicantStatus.ON_SITE, this.applState.listOnSite);
+  }
+
+  private releaseApproved(event: Applicant) {
+    const index = this.applState.listApproved.indexOf(event);
+    if (index >= 0) {
+      this.applState.listApproved.splice(index, 1);
+    }
+  }
+  private addApproved(event: Applicant) {
+    this.applState.setApplicantStatus(event, ApplicantStatus.APPROVED, this.applState.listApproved);
+  }
 }

@@ -25,19 +25,19 @@ export class PageApplicantCreateComponent implements OnInit {
   }
 
   submitApplicantForm() {
-    let requestBody = {
+    const requestBody = {
       name: `${this.form.get('first').value} ${this.form.get('last').value}`,
       email: this.form.get('email').value,
       jobTitle: this.form.get('jobTitle').value,
       jobDescription: this.form.get('jobDescription').value,
     };
-    console.log(requestBody);
     this.httpClient.post("/api/applicants", requestBody).subscribe((success) => {
       console.log(success);
       this.activeModal.close();
     }, (error) => {
-      console.log(error);
-    })
+      console.log("Error encountered on applicant creation: " + error.toString());
+      this.activeModal.close();
+    });
   }
 
 }
