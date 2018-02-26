@@ -1,28 +1,41 @@
+<!--<app-question-bank (selectedQuestion)="addSelectedQuestion($event)"></app-question-bank>-->
+
 <header>
   <h1 [routerLink]="''">Internal-ats</h1>
+  <button class="btn btn-primary" (click)="openConfirmationModal()">
+    <i class="fa fa-minus-circle"></i>
+    Remove Applicant
+  </button>
 </header>
-<!--<app-question-bank (selectedQuestion)="addSelectedQuestion($event)"></app-question-bank>-->
 
 <div applicant-container *ngIf="currentApplicant">
   <div applicant-profile>
-    <div applicant-picture></div>
-    <div applicant-info>
-      <div applicant-status>{{currentApplicant.status}}</div>
-      <div applicant-name>{{currentApplicant.name}}</div>
-      <div applicant-email *ngIf="currentApplicant.email">{{currentApplicant.email}}</div>
-      <div applicant-address *ngIf="currentApplicant.address">{{currentApplicant.address}}</div>
+    <h2>Applicant Profile</h2>
+    <div applicant-profile-flex>
+      <div applicant-picture>
+        <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-128.png">
+      </div>
+      <div applicant-info>
+        <div applicant-status>Application Status: {{currentApplicant.status}}</div>
+        <div applicant-name>Name: {{currentApplicant.name}}</div>
+        <div applicant-email *ngIf="currentApplicant.email">Email: {{currentApplicant.email}}</div>
+        <div applicant-address *ngIf="currentApplicant.address">Address: {{currentApplicant.address}}</div>
+      </div>
     </div>
   </div>
   <div applicant-job>
-    <div applicant-job-title>{{currentApplicant.jobTitle}}</div>
-    <div applicant-job-description>{{currentApplicant.jobDescription}}</div>
+    <h2>Position Information</h2>
+    <div applicant-job-title>Job Title: {{currentApplicant.jobTitle}}</div>
+    <div applicant-job-description>Job Description: {{currentApplicant.jobDescription}}</div>
   </div>
   <div applicant-log>
+    <h2>Question Log</h2>
     <div applicant-question>What are the Angular 4 lifecycle hooks?</div>
     <div applicant-response>This is where the applicant response is recorded.</div>
     <div applicant-question>What are the pros and cons of creating hackday projects from the MEAN stack?</div>
-    <div applicant-empty-response></div>
+    <div applicant-empty-response>
+      <textarea></textarea><br>
+      <button class="btn btn-primary">Submit Applicant Response</button>
+    </div>
   </div>
 </div>
-
-<button type="button" (click)="openConfirmationModal()">Remove Applicant</button>

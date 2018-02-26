@@ -28,14 +28,14 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.route.params.pipe(
       takeUntil(this.ngUnsubscribe))
-    .subscribe((params) => {
-      this.currentApplicant = this.applState.getApplicant(params['id']);
-      if (!this.currentApplicant) {
-        this.http.get('api/applicants/' + params['id']).subscribe((val: any) => {
-          this.currentApplicant = val;
-        });
-      }
-    });
+      .subscribe((params) => {
+        this.currentApplicant = this.applState.getApplicant(params['id']);
+        if (!this.currentApplicant) {
+          this.http.get('api/applicants/' + params['id']).subscribe((val: any) => {
+            this.currentApplicant = val;
+          });
+        }
+      });
   }
 
   ngOnDestroy() {

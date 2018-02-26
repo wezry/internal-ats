@@ -9,6 +9,18 @@ header {
     flex-grow: 1;
     margin-left: 20px;
   }
+  button {
+    margin-right: 40px;
+    display: flex;
+    align-items: center;
+  }
+  i {
+    color: red;
+    font-size: 2rem;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-right: 6px;
+  }
 }
 
 div[applicant-container] {
@@ -22,21 +34,23 @@ div[applicant-container] {
     width: 90%;
     background: #D8DCDB;
     border-radius: 4px;
-    display: flex;
-    flex-direction: row;
     align-items: center;
   }
-
-  div[applicant-picture] {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-  }
-
-  div[applicant-info] {
-    margin-left: 20px;
+  div[applicant-profile-flex] {
     display: flex;
-    flex-direction: column;
+
+    div[applicant-picture] {
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    div[applicant-info] {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   div[applicant-job] {
@@ -53,6 +67,18 @@ div[applicant-container] {
     width: 90%;
     background: #D8DCDB;
     border-radius: 4px;
+    div[applicant-question] {
+      color: black;
+    }
+    div[applicant-response] {
+      color: gray;
+      margin-bottom: 20px;
+    }
+    div[applicant-empty-response] {
+      textarea {
+        min-width: 500px;
+        min-height: 100px;
+      }
+    }
   }
-
 }
