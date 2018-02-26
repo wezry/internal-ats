@@ -10,10 +10,13 @@ import { DragDropDirectiveModule} from 'angular4-drag-drop';
 /* COMPONENTS */
 import { AppComponent } from './app.component';
 import { ApplicationCardComponent } from './application-card/application-card.component';
-import { PageHomeComponent } from './page-home/page-home.component';
-import { PageApplicantDetailComponent } from './page-applicant-detail/page-applicant-detail.component';
 import { ApplicantCreateComponent } from './applicant-create/applicant-create.component';
 
+/* PAGE COMPONENTS (VIEWS) */
+import { PageHomeComponent } from './pages/page-home/page-home.component';
+import { PageApplicantDetailComponent } from './pages/page-applicant-detail/page-applicant-detail.component';
+
+/* SERVICES */
 import {ApplicantStateService} from './services/applicant-state.service';
 
 const appServices = [
@@ -23,7 +26,10 @@ const appServices = [
 const appComponents = [
   AppComponent,
   ApplicationCardComponent,
-  ApplicantCreateComponent,
+  ApplicantCreateComponent
+];
+
+const pageComponents = [
   PageApplicantDetailComponent,
   PageHomeComponent
 ];
@@ -39,7 +45,8 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
-    ...appComponents
+    ...appComponents,
+    ...pageComponents
   ],
   entryComponents: [
     ApplicantCreateComponent

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { ApplicantCreateComponent } from '../applicant-create/applicant-create.component';
+import { ApplicantCreateComponent } from '../../applicant-create/applicant-create.component';
 import {HttpClient} from '@angular/common/http';
-import {Applicant, ApplicantStatus} from '../../models/applicant.model';
+import {Applicant, ApplicantStatus} from '../../../models/applicant.model';
 
 import { groupBy } from 'lodash';
-import { ApplicantStateService } from '../services/applicant-state.service';
+import { ApplicantStateService } from '../../services/applicant-state.service';
 
 @Component({
   selector: 'app-page-home',
