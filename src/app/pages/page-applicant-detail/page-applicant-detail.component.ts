@@ -37,8 +37,8 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
 
   openConfirmationModal() {
     this.confirmationModal.createConfirmationModal(
-      {title: "Are you sure?",
-        message: "Deleting this applicant will remove all stored information."}
+      {title: "Are you sure you wish to delete " + this.currentApplicant.name + "?",
+        message: "Deleting the applicant will remove all stored information."}
     ).then((result) => {
       if (result) {
         this.removeApplicant();
