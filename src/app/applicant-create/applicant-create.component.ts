@@ -16,20 +16,39 @@ export class ApplicantCreateComponent {
               private applState: ApplicantStateService,
               private httpClient: HttpClient) {
     this.form = new FormGroup({
-      first: new FormControl('', [Validators.required]),
-      last: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      jobTitle: new FormControl('', [Validators.required]),
-      jobDescription: new FormControl('', [Validators.required]),
-    }, { updateOn: 'blur' });
+      text: new FormGroup({
+        first: new FormControl('', [Validators.required]),
+        last: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        jobTitle: new FormControl('', [Validators.required]),
+        jobDescription: new FormControl('', [Validators.required]),
+      }, { updateOn: 'blur'}),
+      // first: new FormControl('', [Validators.required]),
+      // last: new FormControl('', [Validators.required]),
+      // email: new FormControl('', [Validators.required, Validators.email]),
+      // jobTitle: new FormControl('', [Validators.required]),
+      // jobDescription: new FormControl('', [Validators.required]),
+      status: new FormControl('', [Validators.required])
+    }, { updateOn: 'change'});
+  }
+
+  ngOnInit() {
+  }
+
+  updateValidity() {
+    // this.form.get('status').valueChanges.subscribe((res) => {
+    //   console.log(res);
+    // });
+    // updateValueAndValidity();
   }
 
   submitApplicantForm() {
     const requestBody = {
-      name: `${this.form.get('first').value} ${this.form.get('last').value}`,
-      email: this.form.get('email').value,
-      jobTitle: this.form.get('jobTitle').value,
-      jobDescription: this.form.get('jobDescription').value,
+      name: `${this.form.get('text').get('first').value} ${this.form.get('text').get('last').value}`,
+      email: this.form.get('text').get('email').value,
+      jobTitle: this.form.get('text').get('jobTitle').value,
+      jobDescription: this.form.get('text').get('jobDescription').value,
+      status: this.form.get('status').value
     };
     this.httpClient.post("/api/applicants", requestBody).subscribe((success) => {
       console.log(success);
