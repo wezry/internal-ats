@@ -3,6 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import {ApplicantStateService} from '../../services/applicant-state/applicant-state.service';
+import { Applicant } from '../../models/applicant.model';
 
 @Component({
   selector: 'app-applicant-create',
@@ -36,7 +37,7 @@ export class ApplicantCreateComponent {
   }
 
   submitApplicantForm() {
-    const requestBody = {
+    const requestBody: Applicant = {
       name: `${this.form.get('text').get('first').value} ${this.form.get('text').get('last').value}`,
       email: this.form.get('text').get('email').value,
       jobTitle: this.form.get('text').get('jobTitle').value,
