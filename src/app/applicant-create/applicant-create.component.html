@@ -32,31 +32,7 @@
         <textarea formControlName="jobDescription" placeholder="Add a brief job description here."></textarea>
       </div>
     </div>
-    <!--<div form-text-item>-->
-      <!--<div label>First name</div>-->
-      <!--<input formControlName="first" placeholder="First">-->
-      <!--<i *ngIf="form.get('first').touched && form.get('first').invalid" class="fa fa-exclamation-circle"></i>-->
-    <!--</div>-->
-    <!--<div form-text-item>-->
-      <!--<div label>Last name</div>-->
-      <!--<input formControlName="last" placeholder="Last">-->
-      <!--<i *ngIf="form.get('last').touched && form.get('last').invalid" class="fa fa-exclamation-circle"></i>-->
-    <!--</div>-->
-    <!--<div form-text-item>-->
-      <!--<div label>Email</div>-->
-      <!--<input formControlName="email" placeholder="Email">-->
-      <!--<i *ngIf="form.get('email').touched && form.get('email').invalid" class="fa fa-exclamation-circle"></i>-->
-    <!--</div>-->
-    <!--<div form-text-item>-->
-      <!--<div label>Job Title</div>-->
-      <!--<input formControlName="jobTitle" placeholder="Title">-->
-      <!--<i *ngIf="form.get('jobTitle').touched && form.get('jobTitle').invalid" class="fa fa-exclamation-circle"></i>-->
-    <!--</div>-->
-    <!--<div form-text-item>-->
-      <!--<div label>Job Description</div>-->
-      <!--<textarea formControlName="jobDescription" placeholder="Add a brief job description here."></textarea>-->
-    <!--</div>-->
-    <div class="btn-group btn-group-toggle" ngbRadioGroup (mouseup)="updateValidity()">
+    <div class="btn-group btn-group-toggle" ngbRadioGroup>
       <label class="btn-primary active" ngbButtonLabel>
         <input type="radio" formControlName="status" [value]="'In Queue'" ngbButton>In Queue
       </label>

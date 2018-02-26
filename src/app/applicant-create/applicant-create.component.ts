@@ -35,13 +35,6 @@ export class ApplicantCreateComponent {
   ngOnInit() {
   }
 
-  updateValidity() {
-    // this.form.get('status').valueChanges.subscribe((res) => {
-    //   console.log(res);
-    // });
-    // updateValueAndValidity();
-  }
-
   submitApplicantForm() {
     const requestBody = {
       name: `${this.form.get('text').get('first').value} ${this.form.get('text').get('last').value}`,
