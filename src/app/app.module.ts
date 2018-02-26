@@ -11,22 +11,26 @@ import { DragDropDirectiveModule} from 'angular4-drag-drop';
 import { AppComponent } from './app.component';
 import { ApplicationCardComponent } from './application-card/application-card.component';
 import { ApplicantCreateComponent } from './applicant-create/applicant-create.component';
+import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 /* PAGE COMPONENTS (VIEWS) */
 import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageApplicantDetailComponent } from './pages/page-applicant-detail/page-applicant-detail.component';
 
 /* SERVICES */
-import { ApplicantStateService } from '../services/applicant-state.service';
+import { ApplicantStateService } from '../services/applicant-state/applicant-state.service';
+import { ConfirmationModalService } from '../services/confirmation-modal/confirmation-modal.service';
 
 const appServices = [
-  ApplicantStateService
+  ApplicantStateService,
+  ConfirmationModalService
 ];
 
 const appComponents = [
   AppComponent,
   ApplicationCardComponent,
-  ApplicantCreateComponent
+  ApplicantCreateComponent,
+  ConfirmationModalComponent
 ];
 
 const pageComponents = [
@@ -49,7 +53,8 @@ const appRoutes: Routes = [
     ...pageComponents
   ],
   entryComponents: [
-    ApplicantCreateComponent
+    ApplicantCreateComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,

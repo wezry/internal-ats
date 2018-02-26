@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Applicant, ApplicantStatus} from '../models/applicant.model';
+import {Applicant, ApplicantStatus} from '../../models/applicant.model';
 import { HttpClient } from '@angular/common/http';
 import { groupBy } from 'lodash';
+import { tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -51,6 +52,15 @@ export class ApplicantStateService {
   }
 
   public getApplicant(id: string): Applicant {
-    return this.applicantList.find((applicant) => applicant._id === id );
+    if (this.applicantList) {
+      return this.applicantList.find((applicant) => applicant._id === id );
+    } else {
+      return null;
+    }
+  }
+
+  public deleteApplicant(id: string): Observable<any> {
+    return this.http.delete("/api/applicants/" + id).pipe(
+      tap((resp) => { this.refreshState(); }));
   }
 }
