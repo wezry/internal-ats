@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {ApplicantStateService} from '../../../services/applicant-state/applicant-state.service';
 import { Subject } from 'rxjs/Subject';
@@ -18,12 +18,13 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
 
   currentApplicant: Applicant;
   ngUnsubscribe: Subject<void> = new Subject<void>();
+  profile: any;
 
   constructor(private applState: ApplicantStateService,
               private confirmationModal: ConfirmationModalService,
               private route: ActivatedRoute,
               private router: Router,
-              private http: HttpClient) { }
+              private http: HttpClient,private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit() {
     this.route.params.pipe(
