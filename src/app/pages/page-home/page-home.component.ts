@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Applicant, ApplicantStatus} from '../../../models/applicant.model';
 
 import { groupBy } from 'lodash';
-import { ApplicantStateService } from '../../services/applicant-state.service';
+import { ApplicantStateService } from '../../../services/applicant-state.service';
 
 @Component({
   selector: 'app-page-home',

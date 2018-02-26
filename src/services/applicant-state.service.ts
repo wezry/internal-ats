@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import {Applicant, ApplicantStatus} from '../../models/applicant.model';
+import {Applicant, ApplicantStatus} from '../models/applicant.model';
 import { HttpClient } from '@angular/common/http';
 import { groupBy } from 'lodash';
 
 @Injectable()
 export class ApplicantStateService {
+
+  public applicantList: Applicant[] = [];
   public listQueue: Applicant[] = [];
   public listPhoneScreen: Applicant[] = [];
   public listOnSite: Applicant[] = [];
@@ -15,6 +17,7 @@ export class ApplicantStateService {
   refreshState() {
     this.http.get('api/applicants').subscribe((applicantResp: Applicant[]) => {
         const statusArrays = groupBy(applicantResp, "status");
+        this.applicantList = applicantResp || [];
         this.listQueue = statusArrays["In Queue"] || [];
         this.listPhoneScreen = statusArrays["Phone Screen"] || [];
         this.listOnSite = statusArrays["On Site"] || [];
@@ -22,6 +25,7 @@ export class ApplicantStateService {
       },
       (err) => {
         console.log("Error retrieving applicants: " + err.toString());
+        this.applicantList = [];
         this.listQueue = [];
         this.listPhoneScreen = [];
         this.listOnSite = [];
@@ -43,5 +47,9 @@ export class ApplicantStateService {
     } else {
       console.log("Applicant ID undefined. Cannot update applicant.");
     }
+  }
+
+  public getApplicant(id: string): Applicant {
+    return this.applicantList.find((applicant) => { return applicant._id === id; });
   }
 }

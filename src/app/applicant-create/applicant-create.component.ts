@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import {ApplicantStateService} from '../services/applicant-state.service';
+import {ApplicantStateService} from '../../services/applicant-state.service';
 
 @Component({
   selector: 'app-applicant-create',

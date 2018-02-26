@@ -17,7 +17,7 @@ import { PageHomeComponent } from './pages/page-home/page-home.component';
 import { PageApplicantDetailComponent } from './pages/page-applicant-detail/page-applicant-detail.component';
 
 /* SERVICES */
-import {ApplicantStateService} from './services/applicant-state.service';
+import { ApplicantStateService } from '../services/applicant-state.service';
 
 const appServices = [
   ApplicantStateService
