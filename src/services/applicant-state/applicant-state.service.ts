@@ -12,7 +12,7 @@ export class ApplicantStateService {
   public listQueue: Applicant[] = [];
   public listPhoneScreen: Applicant[] = [];
   public listOnSite: Applicant[] = [];
-  public listApproved: Applicant[] = [];
+  public listApproval: Applicant[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,7 @@ export class ApplicantStateService {
         this.listQueue = statusArrays["In Queue"] || [];
         this.listPhoneScreen = statusArrays["Phone Screen"] || [];
         this.listOnSite = statusArrays["On Site"] || [];
-        this.listApproved = statusArrays["Approved"] || [];
+        this.listApproval = statusArrays["Approval"] || [];
       },
       (err) => {
         console.log("Error retrieving applicants: " + err.toString());
@@ -31,7 +31,7 @@ export class ApplicantStateService {
         this.listQueue = [];
         this.listPhoneScreen = [];
         this.listOnSite = [];
-        this.listApproved = [];
+        this.listApproval = [];
       });
   }
 

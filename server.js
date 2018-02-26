@@ -7,7 +7,7 @@ const APPLICANT_COLLECTION = "applicants";
 const QUESTION_COLLECTION = "questions";
 const RESPONSE_COLLECTION = "responses";
 
-const APPLICANT_STATUSES = ["In Queue", "Phone Screen", "On Site", "Approved"];
+const APPLICANT_STATUSES = ["In Queue", "Phone Screen", "On Site", "Approval"];
 const QUESTION_TAGS = ["Technical", "Behavioral"];
 
 var app = express();

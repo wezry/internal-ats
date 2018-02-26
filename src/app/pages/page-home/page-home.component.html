@@ -22,7 +22,7 @@
     </div>
     <div status-section dropDirective (dropEvent)="addApproval($event)" [dropHighlight]="'sectionHighlight'">
       <div status-section-title>Approval</div>
-      <app-application-card [applicant]="item" *ngFor="let item of applState.listApproved" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproved($event)"></app-application-card>
+      <app-application-card [applicant]="item" *ngFor="let item of applState.listApproval" [dragDirective]='item' [dragHightlight]="'cardHighlight'" (releaseDrop)="releaseApproval($event)"></app-application-card>
     </div>
   </div>
 </div>

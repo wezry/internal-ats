@@ -55,13 +55,13 @@ export class PageHomeComponent implements OnInit {
     this.applState.setApplicantStatus(event, ApplicantStatus.ON_SITE, this.applState.listOnSite);
   }
 
-  private releaseApproved(event: Applicant) {
-    const index = this.applState.listApproved.indexOf(event);
+  private releaseApproval(event: Applicant) {
+    const index = this.applState.listApproval.indexOf(event);
     if (index >= 0) {
-      this.applState.listApproved.splice(index, 1);
+      this.applState.listApproval.splice(index, 1);
     }
   }
-  private addApproved(event: Applicant) {
-    this.applState.setApplicantStatus(event, ApplicantStatus.APPROVED, this.applState.listApproved);
+  private addApproval(event: Applicant) {
+    this.applState.setApplicantStatus(event, ApplicantStatus.APPROVAL, this.applState.listApproval);
   }
 }

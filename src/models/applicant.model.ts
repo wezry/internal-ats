@@ -2,7 +2,7 @@ export enum ApplicantStatus {
   IN_QUEUE = "In Queue",
   PHONE_SCREEN = "Phone Screen",
   ON_SITE = "On Site",
-  APPROVED = "Approved"
+  APPROVAL = "Approval"
 }
 
 export interface Applicant {
