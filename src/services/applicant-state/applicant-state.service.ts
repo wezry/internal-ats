@@ -36,6 +36,11 @@ export class ApplicantStateService {
   }
 
   public setApplicantStatus(applicant: Applicant, status: ApplicantStatus, pushQueue: Applicant[]) {
+    if (applicant.status === status) {
+      pushQueue.push(applicant);
+      // No need to update status on the backend.
+      return;
+    }
     if (applicant._id) {
       applicant.status = status;
       this.http.put("/api/applicants/" + applicant._id, applicant).subscribe(
