@@ -57,7 +57,7 @@ export class PageApplicantDetailComponent implements OnInit, OnDestroy {
   private removeApplicant() {
     this.applState.deleteApplicant(this.currentApplicant._id).subscribe(
       (deleteResp) => {
-        this.router.navigate(["/home"]);
+        this.router.navigate([""]);
       },
       (err) => { console.log("Error in applicant deletion: " + err.toString()); }
     );
