@@ -1,4 +1,4 @@
-<div card [routerLink]="['/applicant-detail', '1']">
-  <div name>{{name}}</div>
-  <div description>Member of Technical Staff 1</div>
+<div card [routerLink]="['/applicant-detail', applicant._id]">
+  <div name>{{applicant.name}}</div>
+  <div description>{{applicant.jobTitle}}</div>
 </div>

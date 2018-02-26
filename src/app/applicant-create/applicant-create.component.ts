@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import {ApplicantStateService} from '../services/applicant-state.service';
 
 @Component({
-  selector: 'app-page-applicant-create',
-  templateUrl: './page-applicant-create.component.html',
-  styleUrls: ['./page-applicant-create.component.scss']
+  selector: 'app-applicant-create',
+  templateUrl: './applicant-create.component.html',
+  styleUrls: ['./applicant-create.component.scss']
 })
-export class PageApplicantCreateComponent implements OnInit {
+export class ApplicantCreateComponent {
   form: FormGroup;
 
-  constructor(public activeModal: NgbActiveModal, public httpClient: HttpClient) {
+  constructor(public activeModal: NgbActiveModal,
+              private applState: ApplicantStateService,
+              private httpClient: HttpClient) {
     this.form = new FormGroup({
       first: new FormControl('', [Validators.required]),
       last: new FormControl('', [Validators.required]),
@@ -19,9 +22,6 @@ export class PageApplicantCreateComponent implements OnInit {
       jobTitle: new FormControl('', [Validators.required]),
       jobDescription: new FormControl('', [Validators.required]),
     }, { updateOn: 'blur' });
-  }
-
-  ngOnInit() {
   }
 
   submitApplicantForm() {
@@ -34,6 +34,7 @@ export class PageApplicantCreateComponent implements OnInit {
     this.httpClient.post("/api/applicants", requestBody).subscribe((success) => {
       console.log(success);
       this.activeModal.close();
+      this.applState.refreshState();
     }, (error) => {
       console.log("Error encountered on applicant creation: " + error.toString());
       this.activeModal.close();

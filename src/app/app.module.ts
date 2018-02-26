@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import { ApplicationCardComponent } from './application-card/application-card.component';
 import { PageHomeComponent } from './page-home/page-home.component';
 import { PageApplicantDetailComponent } from './page-applicant-detail/page-applicant-detail.component';
-import { PageApplicantCreateComponent } from './page-applicant-create/page-applicant-create.component';
+import { ApplicantCreateComponent } from './applicant-create/applicant-create.component';
 
 import {ApplicantStateService} from './services/applicant-state.service';
 
@@ -23,7 +23,7 @@ const appServices = [
 const appComponents = [
   AppComponent,
   ApplicationCardComponent,
-  PageApplicantCreateComponent,
+  ApplicantCreateComponent,
   PageApplicantDetailComponent,
   PageHomeComponent
 ];
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     ...appComponents
   ],
   entryComponents: [
-    PageApplicantCreateComponent
+    ApplicantCreateComponent
   ],
   imports: [
     BrowserModule,

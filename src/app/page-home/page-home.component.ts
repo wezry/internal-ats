@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
-import { PageApplicantCreateComponent } from '../page-applicant-create/page-applicant-create.component';
+import { ApplicantCreateComponent } from '../applicant-create/applicant-create.component';
 import {HttpClient} from '@angular/common/http';
 import {Applicant, ApplicantStatus} from '../../models/applicant.model';
 
@@ -22,7 +22,7 @@ export class PageHomeComponent implements OnInit {
   }
 
   createNewApplicant() {
-    this.modalService.open(PageApplicantCreateComponent);
+    this.modalService.open(ApplicantCreateComponent);
   }
 
   private releaseQueue(event: Applicant) {
