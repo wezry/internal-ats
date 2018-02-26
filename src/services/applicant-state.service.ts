@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import {Applicant, ApplicantStatus} from '../models/applicant.model';
 import { HttpClient } from '@angular/common/http';
 import { groupBy } from 'lodash';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class ApplicantStateService {
 
-  public applicantList: Applicant[] = [];
+  public applicantList: Applicant[];
   public listQueue: Applicant[] = [];
   public listPhoneScreen: Applicant[] = [];
   public listOnSite: Applicant[] = [];
@@ -50,6 +51,6 @@ export class ApplicantStateService {
   }
 
   public getApplicant(id: string): Applicant {
-    return this.applicantList.find((applicant) => { return applicant._id === id; });
+    return this.applicantList.find((applicant) => applicant._id === id );
   }
 }
