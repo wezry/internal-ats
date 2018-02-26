@@ -1,3 +1,5 @@
+import { Question } from './question.model';
+
 export enum ApplicantStatus {
   IN_QUEUE = "In Queue",
   PHONE_SCREEN = "Phone Screen",
@@ -18,4 +20,5 @@ export interface Applicant {
 
   // Defaults to "In Queue" if not provided in POST.
   status?: ApplicantStatus;
+  questions?: Question[];
 }
