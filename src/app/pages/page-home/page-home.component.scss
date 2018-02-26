@@ -23,7 +23,10 @@ header {
   }
   i {
     color: limegreen;
-    font-size: 2em;
+    font-size: 2rem;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    padding-right: 6px;
   }
 }
 
@@ -69,5 +72,5 @@ div[canvas] {
 }
 .cardHighlight{
   transform: translate3d(-1px, -1px, 3px);
-  box-shadow: 2px 2px 14px -3px black;
+  box-shadow: 6px 6px 14px -3px #808080;
 }
