@@ -40,7 +40,7 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI || 'mongodb://localhost:2701
 
 // Redirect all routes that Node is not using to Angular
 app.get('*', function(req, res) {
-  res.sendfile('./server/views/index.html')
+  res.sendfile('./src/index.html')
 });
 
 // Generic error handler used by all endpoints.
